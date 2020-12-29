@@ -1,0 +1,16 @@
+.buttonsBlog{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.addBtn{
+    color:white;
+    background-color: brown;
+    outline: none;
+    cursor: pointer;
+}
+
+.deleteBtn{
+    cursor: pointer;
+}

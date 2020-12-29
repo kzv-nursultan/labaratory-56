@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.Main{
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+
+.Ingredients {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.Burger {
+  width: 50%;
+  border: 1px solid black;
+  height: 450px;
+  overflow: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
