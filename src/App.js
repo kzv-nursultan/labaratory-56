@@ -19,18 +19,19 @@ const App = () => {
 
   const countPrice = ingredients.reduce((acc, ingredient)=>{
     return acc+(ingredient.count*ingredient.price);
-  },0)
+  },40)
 
   const addIngredient = id =>{
     const index = ingredients.findIndex(p=>p.id===id);
     const ingredientsCopy = [...ingredients];
     const ingredient = {...ingredients[index]};
-    ingredient.count++;
-    const topping = {};
-    topping.id=ingredient.id
-    topping.name=ingredient.name;
-    toppings.push(topping);
-    console.log(toppings);
+    if(ingredient.count<1){
+      ingredient.count++;
+      const topping = {};
+      topping.id=ingredient.id
+      topping.name=ingredient.name;
+      toppings.push(topping);
+    }
     ingredientsCopy[index]=ingredient;
     setIngredients(ingredientsCopy);
   }
@@ -42,11 +43,12 @@ const App = () => {
     if(ingredient.count>0) {
       ingredient.count--;
     };
-    const toppingsCopy = [...toppings];
-    toppingsCopy.splice(index,1)
-    setToppings(toppingsCopy);
     ingredientsCopy[index]=ingredient;
     setIngredients(ingredientsCopy);
+    const indexTopping = toppings.findIndex(p=>p.id===id);
+    const toppingsCopy = [...toppings];
+    toppingsCopy.splice(indexTopping,1);
+    setToppings(toppingsCopy);
   }
 
   const buttonList = (
